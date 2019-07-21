@@ -32,6 +32,6 @@ async function init() {
         .append("path")
         .attr("d", arc)
         .attr("fill", "white")
-        .transition().duration(2000).delay(500)
+        .transition().duration(1000).delay(300)
         .attr("fill", (d, i) => { return color(i) })
 }
