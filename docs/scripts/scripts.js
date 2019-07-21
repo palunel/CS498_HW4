@@ -43,7 +43,7 @@ async function init() {
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
-                .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours")
+                .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
         })
         .on("mouseout", () => {
             arc.outerRadius = orignalRadius;
