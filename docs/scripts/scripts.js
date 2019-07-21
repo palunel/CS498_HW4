@@ -35,7 +35,6 @@ async function init() {
         .append("path")
         .attr("d", arc)
         .attr("fill", (d, i) => { return color(i) })
-
         .on("mouseover", (d, i) => {
             console.log('mouseover')
             tooltip.style("opacity", 1)
@@ -52,7 +51,10 @@ async function init() {
         })
         .on("mouseout", () => {
             console.log('mouseout')
-            tooltip.style("opacity", 0)
+            tooltip
+                .style("opacity", 0)
+                .style("left", 0)
+                .style("top", 0)
         })
 
 }
