@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test13")
+    console.log("test14")
     console.log(duration)
 
     var svg = d3.select("svg"),
@@ -16,6 +16,7 @@ async function init() {
         g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     var color = d3.scaleOrdinal(['#4daf4a', '#377eb8', '#ff7f00', '#984ea3', '#e41a1c']);
+    var background = svg.attr("background")
 
     // Generate the pie
     var pie = d3.pie();
