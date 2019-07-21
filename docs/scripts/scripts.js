@@ -6,8 +6,9 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
+    total = duration.reduce((a, b) => a + b, 0)
     console.log("test34")
-    console.log(duration)
+    console.log(total)
 
     var tooltip = d3.select("#tooltip")
 
@@ -36,14 +37,12 @@ async function init() {
         .attr("d", arc)
         .attr("fill", (d, i) => { return color(i) })
         .on("mouseover", (d, i) => {
-            // console.log('mouseover')
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
                 .html(course[i])
         })
         .on("mouseout", () => {
-            // console.log('mouseout')
             tooltip
                 .style("opacity", 0)
                 .style("left", 0)
@@ -58,7 +57,7 @@ async function init() {
         })
         .attr("text-anchor", "middle")
         .text((d, i) => {
-            return course[i];
+            return duration[i] / total;
         })
         .style("font-size", '10px')
 
