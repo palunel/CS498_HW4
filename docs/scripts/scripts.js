@@ -28,13 +28,6 @@ async function init() {
         .innerRadius(0)
         .outerRadius(radius)
 
-    function showTooltip(event, tipText) {
-        tooltip.style("opacity", 1)
-            .style("left", (event.pageX) + "px")
-            .style("top", (event.pageY) + "px")
-            .html(tipText)
-    }
-
     //Generate groups
     g.selectAll("path")
         .data(pie(duration))
@@ -57,6 +50,12 @@ async function init() {
         .on("mouseout", () => { tooltip.style("opacity", 0) })
         .on("mouseleave", () => { tooltip.style("opacity", 0) });
 
-
+    g.append('text')
+        .attr('transform', function (d) {
+            var c = arc.centroid(d);
+            console.log(c);
+            return "translate(" + c[0] + "," + c[1] + ")";
+        })
+        .text(function (d) { return d.value + "%"; });
 }
 
