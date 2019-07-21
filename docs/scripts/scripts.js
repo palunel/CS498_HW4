@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test30")
+    console.log("test31")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
@@ -17,7 +17,7 @@ async function init() {
         radius = Math.min(width, height) / 2,
         g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var color = d3.scaleOrdinal(['#393b79', '#5254a3', '#ff7f00', '#6b6ecf', '#9c9ede']);
+    var color = d3.scaleOrdinal(['#5355ae', '#6d70ba', '#888ac7', '#a3a4d3', '#bdbee0', '#d8d9ed']);
     var background = svg.attr("background")
 
     // Generate the pie
