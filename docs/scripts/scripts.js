@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test9")
+    console.log("test10")
     console.log(duration)
 
     var svg = d3.select("svg"),
@@ -31,8 +31,8 @@ async function init() {
         .enter()
         .append("arc")
         .attr("fill", (d, i) => { return color(i) })
-        .attr("outerRadius", 0)
-        .transition().duration(3000).delay(1000)
+        // .attr("outerRadius", 0)
+        // .transition().duration(3000).delay(1000)
         .attr("outerRadius", radius);
 
 
