@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test4")
+    console.log("test5")
     console.log(duration)
 
     var svg = d3.select("svg"),
@@ -24,7 +24,6 @@ async function init() {
     var arc = d3.arc()
         .innerRadius(0)
         .outerRadius(0)
-        .transition().duration(3000)
         .outerRadius(radius);
 
     //Generate groups
@@ -40,4 +39,6 @@ async function init() {
             return color(i);
         })
         .attr("d", arc);
+
+    d3.select(arc).transition().duration(3000).attr("outerRadius", radius);
 }
