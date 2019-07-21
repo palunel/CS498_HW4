@@ -38,6 +38,7 @@ async function init() {
         // .transition().duration(1000).delay(300)
         .attr("fill", (d, i) => { return color(i) })
         .on("mouseover", (d, i) => {
+            d3.select(this).transition().duration(1000).attr("d", d3.svg.arc().innerRadius(0).outerRadius(150 + 10))
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
