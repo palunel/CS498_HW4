@@ -39,14 +39,12 @@ async function init() {
         .attr("fill", (d, i) => { return color(i) })
         .on("mouseover", (d, i) => {
             orignalRadius = arc.outerRadius
-            arc.outerRadius += 50;
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
                 .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
         })
         .on("mouseout", () => {
-            arc.outerRadius = orignalRadius;
             tooltip
                 .style("opacity", 0)
                 .style("left", 0)
