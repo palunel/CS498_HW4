@@ -2,15 +2,16 @@ async function init() {
     var data = await d3.csv("courses.csv");
     var duration = [];
     var course = [];
+    total = 0
     data.forEach(row => {
         course.push(row.Course);
         duration.push(row.Total_Time);
+        total += row.Total_Time;
     });
-    total = duration.reduce((a, b) => a + b, 0)
-    console.log("test35")
-    console.log(total)
+    console.log("test36");
+    console.log(total);
 
-    var tooltip = d3.select("#tooltip")
+    var tooltip = d3.select("#tooltip");
 
     var svg = d3.select("svg"),
         width = svg.attr("width"),
