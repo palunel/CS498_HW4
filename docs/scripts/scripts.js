@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test5")
+    console.log("test6")
     console.log(duration)
 
     var svg = d3.select("svg"),
@@ -40,5 +40,5 @@ async function init() {
         })
         .attr("d", arc);
 
-    d3.select(arc).transition().duration(3000).attr("outerRadius", radius);
+    d3.select(arc).transition().duration(3000).outerRadius(radius);
 }
