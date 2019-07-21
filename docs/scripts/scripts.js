@@ -35,13 +35,16 @@ async function init() {
         .append("path")
         .attr("d", arc)
         .attr("fill", (d, i) => { return color(i) })
+
         .on("mouseover", (d, i) => {
+            console.log('mouseover')
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
                 .html(course[i])
         })
         .on("mouseenter", (d, i) => {
+            console.log('mouseenter')
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
@@ -52,12 +55,5 @@ async function init() {
             tooltip.style("opacity", 0)
         })
 
-    g.append('text')
-        .attr('transform', function (d) {
-            var c = arc.centroid(d);
-            console.log(c);
-            return "translate(" + c[0] + "," + c[1] + ")";
-        })
-        .text(function (d) { return d.value + "%"; });
 }
 
