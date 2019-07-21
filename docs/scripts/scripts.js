@@ -3,7 +3,7 @@ async function init() {
     // console.log(data)
     var pie = d3.pie()
     pie(data)
-    console.log(pie)
+    console.log(pie(data))
 
 
 }
