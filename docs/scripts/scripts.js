@@ -28,6 +28,13 @@ async function init() {
         .innerRadius(0)
         .outerRadius(radius)
 
+    function showTooltip(event, tipText) {
+        tooltip.style("opacity", 1)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY) + "px")
+            .html(tipText)
+    }
+
     //Generate groups
     g.selectAll("path")
         .data(pie(duration))
@@ -43,6 +50,7 @@ async function init() {
                 .style("top", (d3.event.pageY) + "px")
                 .html(course[i])
         })
+        .on("mouseenter", showTooltip(d3.event, course[i]))
         .on("mouseout", () => { tooltip.style("opacity", 0) });
 
 }
