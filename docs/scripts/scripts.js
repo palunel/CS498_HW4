@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test25")
+    console.log("test26")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
@@ -35,49 +35,49 @@ async function init() {
         .append("path")
         .attr("d", arc)
         .attr("fill", (d, i) => { return color(i) })
-    // .on("mouseover", (d, i) => {
-    //     console.log('mouseover')
-    //     tooltip.style("opacity", 1)
-    //         .style("left", (d3.event.pageX) + "px")
-    //         .style("top", (d3.event.pageY) + "px")
-    //         .html(course[i])
-    // })
-    // .on("mouseenter", (d, i) => {
-    //     console.log('mouseenter')
-    //     tooltip.style("opacity", 1)
-    //         .style("left", (d3.event.pageX) + "px")
-    //         .style("top", (d3.event.pageY) + "px")
-    //         .html(course[i])
-    // })
-    // .on("mouseout", () => {
-    //     console.log('mouseout')
-    //     tooltip
-    //         .style("opacity", 0)
-    //         .style("left", 0)
-    //         .style("top", 0)
-    // })
+        .on("mouseover", (d, i) => {
+            // console.log('mouseover')
+            tooltip.style("opacity", 1)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY) + "px")
+                .html(course[i])
+        })
+        // .on("mouseenter", (d, i) => {
+        //     // console.log('mouseenter')
+        //     tooltip.style("opacity", 1)
+        //         .style("left", (d3.event.pageX) + "px")
+        //         .style("top", (d3.event.pageY) + "px")
+        //         .html(course[i])
+        // })
+        .on("mouseout", () => {
+            // console.log('mouseout')
+            tooltip
+                .style("opacity", 0)
+                .style("left", 0)
+                .style("top", 0)
+        })
 
 }
 
-d3.selectAll("path")
-    .on("mouseover", (d, i) => {
-        // console.log('mouseover')
-        tooltip.style("opacity", 1)
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY) + "px")
-            .html(course[i])
-    })
-    // .on("mouseenter", (d, i) => {
-    //     // console.log('mouseenter')
-    //     tooltip.style("opacity", 1)
-    //         .style("left", (d3.event.pageX) + "px")
-    //         .style("top", (d3.event.pageY) + "px")
-    //         .html(course[i])
-    // })
-    .on("mouseout", () => {
-        // console.log('mouseout')
-        tooltip
-            .style("opacity", 0)
-            .style("left", 0)
-            .style("top", 0)
-    })
+// d3.selectAll("path")
+//     .on("mouseover", (d, i) => {
+//         // console.log('mouseover')
+//         tooltip.style("opacity", 1)
+//             .style("left", (d3.event.pageX) + "px")
+//             .style("top", (d3.event.pageY) + "px")
+//             .html(course[i])
+//     })
+//     // .on("mouseenter", (d, i) => {
+//     //     // console.log('mouseenter')
+//     //     tooltip.style("opacity", 1)
+//     //         .style("left", (d3.event.pageX) + "px")
+//     //         .style("top", (d3.event.pageY) + "px")
+//     //         .html(course[i])
+//     // })
+//     .on("mouseout", () => {
+//         // console.log('mouseout')
+//         tooltip
+//             .style("opacity", 0)
+//             .style("left", 0)
+//             .style("top", 0)
+//     })
