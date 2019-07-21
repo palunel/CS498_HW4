@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test26")
+    console.log("test27")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
@@ -17,7 +17,7 @@ async function init() {
         radius = Math.min(width, height) / 2,
         g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var color = d3.scaleOrdinal(['#4daf4a', '#377eb8', '#ff7f00', '#984ea3', '#e41a1c']);
+    var color = d3.scaleOrdinal(['#393b79', '#5254a3', '#ff7f00', '#6b6ecf', '#9c9ede']);
     var background = svg.attr("background")
 
     // Generate the pie
@@ -42,13 +42,6 @@ async function init() {
                 .style("top", (d3.event.pageY) + "px")
                 .html(course[i])
         })
-        // .on("mouseenter", (d, i) => {
-        //     // console.log('mouseenter')
-        //     tooltip.style("opacity", 1)
-        //         .style("left", (d3.event.pageX) + "px")
-        //         .style("top", (d3.event.pageY) + "px")
-        //         .html(course[i])
-        // })
         .on("mouseout", () => {
             // console.log('mouseout')
             tooltip
@@ -56,28 +49,16 @@ async function init() {
                 .style("left", 0)
                 .style("top", 0)
         })
+    g.selectAll('text')
+        .data(pie(duration))
+        .enter()
+        .append("text")
+        .attr("transform", (d) => {
+            return "translate(" + arc.centroid(d) + ")"
+        })
+        .attr("text-anchor", "middle")
+        .text((d) => {
+            return "text"
+        })
 
 }
-
-// d3.selectAll("path")
-//     .on("mouseover", (d, i) => {
-//         // console.log('mouseover')
-//         tooltip.style("opacity", 1)
-//             .style("left", (d3.event.pageX) + "px")
-//             .style("top", (d3.event.pageY) + "px")
-//             .html(course[i])
-//     })
-//     // .on("mouseenter", (d, i) => {
-//     //     // console.log('mouseenter')
-//     //     tooltip.style("opacity", 1)
-//     //         .style("left", (d3.event.pageX) + "px")
-//     //         .style("top", (d3.event.pageY) + "px")
-//     //         .html(course[i])
-//     // })
-//     .on("mouseout", () => {
-//         // console.log('mouseout')
-//         tooltip
-//             .style("opacity", 0)
-//             .style("left", 0)
-//             .style("top", 0)
-//     })
