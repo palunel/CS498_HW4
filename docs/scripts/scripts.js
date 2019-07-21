@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test21")
+    console.log("test22")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
