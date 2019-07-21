@@ -10047,4 +10047,14 @@ a.text-dark:hover, a.text-dark:focus {
 arc:hover{
   fill:red;
 }
+
+#tooltip{
+  opacity:0;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  background: white;
+  border: 0px;
+}
 /*# sourceMappingURL=bootstrap.css.map */
