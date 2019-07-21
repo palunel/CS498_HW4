@@ -41,8 +41,6 @@ async function init() {
         .enter()
         .append("path")
         .attr("d", arc)
-        // .attr("fill", "white")
-        // .transition().duration(1000).delay(300)
         .attr("fill", (d, i) => { return color(i) })
         .on("mouseover", (d, i) => {
             tooltip.style("opacity", 1)
