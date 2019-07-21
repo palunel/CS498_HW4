@@ -47,8 +47,10 @@ async function init() {
                 .style("top", (d3.event.pageY) + "px")
                 .html(course[i])
         })
-        .on("mouseout", () => { tooltip.style("opacity", 0) })
-        .on("mouseleave", () => { tooltip.style("opacity", 0) });
+        .on("mouseout", () => {
+            console.log('mouseout')
+            tooltip.style("opacity", 0)
+        })
 
     g.append('text')
         .attr('transform', function (d) {
