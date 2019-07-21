@@ -23,6 +23,8 @@ async function init() {
     // Generate the arcs
     var arc = d3.arc()
         .innerRadius(0)
+        .outerRadius(0)
+        .transition().duration(3000)
         .outerRadius(radius);
 
     //Generate groups
