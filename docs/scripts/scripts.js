@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test28")
+    console.log("test29")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
@@ -50,7 +50,7 @@ async function init() {
                 .style("top", 0)
         })
     g.selectAll('text')
-        .data(pie(course))
+        .data(pie(data.Total_Time))
         .enter()
         .append("text")
         .attr("transform", (d) => {
@@ -58,7 +58,7 @@ async function init() {
         })
         .attr("text-anchor", "middle")
         .text((d) => {
-            return d;
+            return "text";
         })
 
 }
