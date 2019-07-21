@@ -24,7 +24,6 @@ async function init() {
     var arc = d3.arc()
         .innerRadius(0)
         .outerRadius(0)
-        .outerRadius(radius);
 
     //Generate groups
     var arcs = g.selectAll("arc")
