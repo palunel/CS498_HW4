@@ -60,6 +60,6 @@ async function init() {
         .text((d, i) => {
             return (parseInt(duration[i]) * 100 / parseInt(total)).toFixed(1) + "%";
         })
-        .style("font-size", '10px')
+        .style("font-size", '15px')
 
 }
