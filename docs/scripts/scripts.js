@@ -6,9 +6,9 @@ async function init() {
     data.forEach(row => {
         course.push(row.Course);
         duration.push(row.Total_Time);
-        total += row.Total_Time;
+        total += parseInt(row.Total_Time);
     });
-    console.log("test36");
+    console.log("test37");
     console.log(total);
 
     var tooltip = d3.select("#tooltip");
