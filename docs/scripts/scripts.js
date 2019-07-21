@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test31")
+    console.log("test33")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
@@ -57,8 +57,8 @@ async function init() {
             return "translate(" + arc.centroid(d) + ")"
         })
         .attr("text-anchor", "middle")
-        .text((d) => {
-            return d;
+        .text((d, i) => {
+            return course[i];
         })
 
 }
