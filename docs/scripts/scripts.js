@@ -8,7 +8,7 @@ async function init() {
         duration.push(row.Total_Time);
         total += parseInt(row.Total_Time);
     });
-    console.log("test41");
+    console.log("test42");
     console.log(total);
 
     var tooltip = d3.select("#tooltip");
