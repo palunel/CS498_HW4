@@ -29,8 +29,7 @@ async function init() {
     var arcs = g.selectAll("arc")
         .data(pie(duration))
         .enter()
-        .append("g")
-        .attr("class", "arc")
+        .append("arc")
         .attr("outerRadius", 0)
         .transition().duration(3000).delay(1000)
         .attr("outerRadius", radius);
