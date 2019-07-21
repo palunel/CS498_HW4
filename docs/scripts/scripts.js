@@ -50,7 +50,7 @@ async function init() {
                 .style("top", (d3.event.pageY) + "px")
                 .html(course[i])
         })
-        .on("mouseenter", showTooltip(d3.event, course[i]))
+        // .on("mouseenter", showTooltip(d3.event, course[i]))
         .on("mouseout", () => { tooltip.style("opacity", 0) });
 
 }
