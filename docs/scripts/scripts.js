@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test22")
+    console.log("test23")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
@@ -61,21 +61,21 @@ async function init() {
 
 d3.selectAll("path")
     .on("mouseover", (d, i) => {
-        console.log('mouseover')
+        // console.log('mouseover')
         tooltip.style("opacity", 1)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px")
             .html(course[i])
     })
     .on("mouseenter", (d, i) => {
-        console.log('mouseenter')
+        // console.log('mouseenter')
         tooltip.style("opacity", 1)
             .style("left", (d3.event.pageX) + "px")
             .style("top", (d3.event.pageY) + "px")
             .html(course[i])
     })
     .on("mouseout", () => {
-        console.log('mouseout')
+        // console.log('mouseout')
         tooltip
             .style("opacity", 0)
             .style("left", 0)
