@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test33")
+    console.log("test34")
     console.log(duration)
 
     var tooltip = d3.select("#tooltip")
@@ -60,5 +60,6 @@ async function init() {
         .text((d, i) => {
             return course[i];
         })
+        .style("font-size", '10px')
 
 }
