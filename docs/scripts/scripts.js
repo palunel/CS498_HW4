@@ -31,6 +31,8 @@ async function init() {
         .enter()
         .append("path")
         .attr("d", arc)
+        .attr("fill", "white")
+        .transition().duration(2000).delay(500)
         .attr("fill", (d, i) => { return color(i) })
     // // .attr("outerRadius", 0)
     // // .transition().duration(3000).delay(1000)
