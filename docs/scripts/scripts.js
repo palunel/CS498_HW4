@@ -8,7 +8,7 @@ async function init() {
         duration.push(row.Total_Time);
         total += parseInt(row.Total_Time);
     });
-    console.log("test38");
+    console.log("test39");
     console.log(total);
 
     var tooltip = d3.select("#tooltip");
@@ -41,7 +41,7 @@ async function init() {
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
-                .html(course[i])
+                .html(course[i] + "\n" + parseInt(duration[i]).toFixed(2) + "hours")
         })
         .on("mouseout", () => {
             tooltip
