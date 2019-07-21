@@ -7,7 +7,7 @@ async function init() {
         duration.push(row.Total_Time);
     });
     total = duration.reduce((a, b) => a + b, 0)
-    console.log("test34")
+    console.log("test35")
     console.log(total)
 
     var tooltip = d3.select("#tooltip")
@@ -57,7 +57,7 @@ async function init() {
         })
         .attr("text-anchor", "middle")
         .text((d, i) => {
-            return duration[i] / total;
+            return parseInt(duration[i]) / parseInt(total);
         })
         .style("font-size", '10px')
 
