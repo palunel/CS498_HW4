@@ -44,21 +44,21 @@ async function init() {
         // .attr("fill", "white")
         // .transition().duration(1000).delay(300)
         .attr("fill", (d, i) => { return color(i) })
+        .on("mouseover", (d, i) => {
+            tooltip.style("opacity", 1)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY) + "px")
+                .html(course[i])
+        })
+        .on("mouseenter", (d, i) => {
+            tooltip.style("opacity", 1)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY) + "px")
+                .html(course[i])
+        })
+        .on("mouseout", () => { tooltip.style("opacity", 0) })
+        .on("mouseleave", () => { tooltip.style("opacity", 0) });
 
 
 }
-d3.selectAll("path")
-    .on("mouseover", (d, i) => {
-        tooltip.style("opacity", 1)
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY) + "px")
-            .html(course[i])
-    })
-    .on("mouseenter", (d, i) => {
-        tooltip.style("opacity", 1)
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY) + "px")
-            .html(course[i])
-    })
-    .on("mouseout", () => { tooltip.style("opacity", 0) })
-    .on("mouseleave", () => { tooltip.style("opacity", 0) });
+
