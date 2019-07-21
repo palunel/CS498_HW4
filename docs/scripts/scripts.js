@@ -2,10 +2,12 @@ async function init() {
     var data = await d3.csv("courses.csv");
     var duration = [];
     var course = [];
+    var codes = [];
     total = 0
     data.forEach(row => {
         course.push(row.Course);
         duration.push(row.Total_Time);
+        codes.push(row.Code)
         total += parseInt(row.Total_Time);
     });
     console.log("test44");
@@ -59,7 +61,7 @@ async function init() {
         })
         .attr("text-anchor", "middle")
         .text((d, i) => {
-            return (parseInt(duration[i]) * 100 / parseInt(total)).toFixed(1) + "%";
+            return (codes[i] + '\n' + parseInt(duration[i]) * 100 / parseInt(total)).toFixed(1) + "%";
         })
         .style("font-size", '15px')
 
