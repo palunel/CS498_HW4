@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test6")
+    console.log("test7")
     console.log(duration)
 
     var svg = d3.select("svg"),
@@ -23,7 +23,7 @@ async function init() {
     // Generate the arcs
     var arc = d3.arc()
         .innerRadius(0)
-        .outerRadius(0)
+        .outerRadius(radius)
 
     //Generate groups
     var arcs = g.selectAll("arc")
@@ -31,6 +31,10 @@ async function init() {
         .enter()
         .append("g")
         .attr("class", "arc")
+        .attr("outerRadius", 0)
+        .tranision().duration(3000).delay(1000)
+        .attr("outerRadius", radius);
+
 
     //Draw arc paths
     arcs.append("path")
@@ -39,5 +43,4 @@ async function init() {
         })
         .attr("d", arc);
 
-    d3.select(arc).transition().duration(3000).outerRadius(radius);
 }
