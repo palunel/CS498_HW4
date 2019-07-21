@@ -6,7 +6,7 @@ async function init() {
         course.push(row.Course);
         duration.push(row.Total_Time);
     });
-    console.log("test12")
+    console.log("test13")
     console.log(duration)
 
     var svg = d3.select("svg"),
@@ -34,17 +34,4 @@ async function init() {
         .attr("fill", "white")
         .transition().duration(2000).delay(500)
         .attr("fill", (d, i) => { return color(i) })
-    // // .attr("outerRadius", 0)
-    // // .transition().duration(3000).delay(1000)
-    // .attr("iinerRadius", 0)
-    // .attr("outerRadius", radius);
-
-
-    // //Draw arc paths
-    // arcs.append("path")
-    //     .attr("fill", function (d, i) {
-    //         return color(i);
-    //     })
-    //     .attr("d", arc);
-
 }
