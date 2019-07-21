@@ -41,7 +41,7 @@ async function init() {
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
-                .html("<p>" + course[i] + "</p> <p>" + parseInt(duration[i]).toFixed(0) + " hours</p>")
+                .html("<p>" + course[i] + "</p><p>" + parseInt(duration[i]).toFixed(0) + " hours</p>")
         })
         .on("mouseout", () => {
             tooltip
