@@ -8,7 +8,7 @@ async function init() {
         duration.push(row.Total_Time);
         total += parseInt(row.Total_Time);
     });
-    console.log("test37");
+    console.log("test38");
     console.log(total);
 
     var tooltip = d3.select("#tooltip");
@@ -58,7 +58,7 @@ async function init() {
         })
         .attr("text-anchor", "middle")
         .text((d, i) => {
-            return parseInt(duration[i]) / parseInt(total);
+            return (parseInt(duration[i]) / parseInt(total)).toFixed(1) + "%";
         })
         .style("font-size", '10px')
 
