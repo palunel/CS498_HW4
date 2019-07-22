@@ -11,8 +11,6 @@ async function courseOverview() {
         codes.push(row.Code)
         total += parseInt(row.Total_Time);
     });
-    console.log("test46");
-    console.log(total);
 
     var tooltip = d3.select("#tooltip");
 
@@ -75,6 +73,7 @@ async function courseOverview() {
 }
 async function init() {
     await courseOverview()
+    console.log("test50");
 }
 
 async function courseDetail() {
