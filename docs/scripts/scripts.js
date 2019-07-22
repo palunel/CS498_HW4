@@ -38,13 +38,13 @@ async function init() {
         .enter()
         .append("path")
         .attr("d", arc)
-        .attr("fill", (d, i) => { return color(i) })
-        .on("mouseover", (d, i) => {
-            orignalRadius = arc.outerRadius
+        .attr("fill", (i) => { return color(i) })
+        .on("mouseover", (i) => {
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
                 .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
+            d3.select(this).outerRadius += 10;
         })
         .on("mouseout", () => {
             tooltip
@@ -52,7 +52,7 @@ async function init() {
                 .style("left", 0)
                 .style("top", 0)
         })
-    g.selectAll('text')
+    g.selectAll("text")
         .data(pie(duration))
         .enter()
         .append("text")
