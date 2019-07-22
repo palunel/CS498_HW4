@@ -51,7 +51,10 @@ async function init() {
                 .style("left", 0)
                 .style("top", 0)
         })
-        .on("click", () => { svg.selectAll("*").remove() });
+        .on("click", () => {
+            svg.selectAll("*").remove();
+            tooltip.style("opacity", 0);
+        });
     g.selectAll("text")
         .data(pie(duration))
         .enter()
