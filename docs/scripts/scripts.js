@@ -73,7 +73,7 @@ async function courseOverview() {
 }
 async function init() {
     await courseOverview()
-    console.log("test50");
+    console.log("test51");
 }
 
 async function courseDetail() {
