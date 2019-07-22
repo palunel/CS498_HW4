@@ -55,7 +55,8 @@ async function init() {
             tooltip
                 .style("opacity", 0)
                 .style("left", 0)
-                .style("top", 0)
+                .style("top", 0);
+            courseDetail();
         });
     g.selectAll("text")
         .data(pie(duration))
