@@ -78,6 +78,6 @@ async function init() {
 
 async function courseDetail() {
     console.log('called clear')
-    var svg = d3.select("#course")
+    var svg = d3.select("svg#course")
     svg.selectAll("*").remove();
 }
