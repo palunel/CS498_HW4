@@ -60,7 +60,7 @@ async function init() {
         })
         .attr("text-anchor", "middle")
         .text((d, i) => {
-            return (codes[i] + "(" + (parseInt(duration[i]) / total).toFixed(0) + "%)")
+            return (codes[i] + " (" + (parseInt(duration[i] * 100) / total).toFixed(0) + "%)")
         })
         .style("font-size", '15px')
         .style("font-weight", "bold")
