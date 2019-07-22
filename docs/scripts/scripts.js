@@ -51,7 +51,7 @@ async function init() {
                 .style("left", 0)
                 .style("top", 0)
         })
-        .on("click", (d, i) => { console.log("clicked " + i) });
+        .on("click", () => { svg.selectAll("*").remove() });
     g.selectAll("text")
         .data(pie(duration))
         .enter()
