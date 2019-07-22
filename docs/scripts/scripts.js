@@ -10,12 +10,12 @@ async function init() {
         codes.push(row.Code)
         total += parseInt(row.Total_Time);
     });
-    console.log("test44");
+    console.log("test45");
     console.log(total);
 
     var tooltip = d3.select("#tooltip");
 
-    var svg = d3.select("svg"),
+    var svg = d3.select("#courses"),
         width = svg.attr("width"),
         height = svg.attr("height"),
         radius = 0.8 * Math.min(width, height) / 2,
