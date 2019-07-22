@@ -162,5 +162,5 @@ async function removeCourseOverview() {
 
 async function init() {
     await courseOverview();
-    console.log("test52");
+    console.log("test53");
 }
