@@ -43,18 +43,18 @@ async function courseOverview() {
         .attr("d", arc)
         .attr("fill", (d, i) => { return color(i) })
         .on("mouseover", (d, i) => {
-            d3.select(this).transition().duration(1000).attr("d", arcOver)
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
                 .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
+            d3.select(this).transition().duration(1000).attr("d", arcOver);
         })
         .on("mouseout", () => {
-            d3.select(this).transition().duration(1000).attr("d", arc)
             tooltip
                 .style("opacity", 0)
                 .style("left", 0)
                 .style("top", 0)
+            d3.select(this).transition().duration(1000).attr("d", arc);
         })
         .on("click", () => {
             tooltip
