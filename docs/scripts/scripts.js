@@ -31,6 +31,10 @@ async function courseOverview() {
         .innerRadius(0)
         .outerRadius(radius)
 
+    var arcOver = d3.arc()
+        .innerRadius(0)
+        .outerRadius(1.2 * radius)
+
     //Generate groups
     g.selectAll("path")
         .data(pie(duration))
@@ -39,12 +43,14 @@ async function courseOverview() {
         .attr("d", arc)
         .attr("fill", (d, i) => { return color(i) })
         .on("mouseover", (d, i) => {
+            d3.select(this).transition().duration(1000).attr("d", arcOver)
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
                 .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
         })
         .on("mouseout", () => {
+            d3.select(this).transition().duration(1000).attr("d", arc)
             tooltip
                 .style("opacity", 0)
                 .style("left", 0)
