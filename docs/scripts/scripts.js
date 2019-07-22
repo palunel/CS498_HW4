@@ -149,13 +149,12 @@ async function removeCourseOverview() {
     console.log('called clear')
     var svg = d3.select("svg#course")
     svg.selectAll("*").remove();
+    await courseDetail();
+    console.log("detail rendered")
 }
 
 
 async function init() {
     await courseOverview();
     console.log("test52");
-    await courseDetail();
-    console.log("detail rendered")
-
 }
