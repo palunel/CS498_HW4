@@ -44,7 +44,6 @@ async function init() {
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
                 .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
-            d3.select(this).outerRadius += 10;
         })
         .on("mouseout", () => {
             tooltip
@@ -61,7 +60,7 @@ async function init() {
         })
         .attr("text-anchor", "middle")
         .text((d, i) => {
-            return (codes[i])
+            return (codes[i] + "(" + (parseInt(duration[i]) / total).toFixed(0) + "%)")
         })
         .style("font-size", '15px')
         .style("font-weight", "bold")
