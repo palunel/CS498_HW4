@@ -14,7 +14,7 @@ async function courseOverview() {
 
     var tooltip = d3.select("#tooltip");
 
-    var svg = d3.select("svg #courses"),
+    var svg = d3.select("svg#course"),
         width = svg.attr("width"),
         height = svg.attr("height"),
         radius = 0.8 * Math.min(width, height) / 2,
@@ -73,7 +73,7 @@ async function courseOverview() {
 }
 async function init() {
     await courseOverview()
-    console.log("test51");
+    console.log("test52");
 }
 
 async function courseDetail() {
