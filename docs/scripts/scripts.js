@@ -74,6 +74,7 @@ async function init() {
 }
 
 async function courseDetail() {
+    console.log('called clear')
     var svg = d3.select("#course")
     svg.selectAll("*").remove();
 }
