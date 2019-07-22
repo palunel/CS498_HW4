@@ -55,7 +55,7 @@ async function courseOverview() {
                 .style("opacity", 0)
                 .style("left", 0)
                 .style("top", 0);
-            courseDetail();
+            removeCourseOverview();
         });
     g.selectAll("text")
         .data(pie(duration))
@@ -71,13 +71,13 @@ async function courseOverview() {
         .style("font-size", '15px')
         .style("font-weight", "bold")
 }
-async function init() {
-    await courseOverview()
-    console.log("test52");
-}
 
-async function courseDetail() {
+async function removeCourseOverview() {
     console.log('called clear')
     var svg = d3.select("svg#course")
     svg.selectAll("*").remove();
+}
+async function init() {
+    await courseOverview()
+    console.log("test52");
 }
