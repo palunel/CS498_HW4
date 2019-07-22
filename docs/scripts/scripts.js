@@ -52,8 +52,10 @@ async function init() {
                 .style("top", 0)
         })
         .on("click", () => {
-            svg.selectAll("*").remove();
-            tooltip.style("opacity", 0);
+            tooltip
+                .style("opacity", 0)
+                .style("left", 0)
+                .style("top", 0)
         });
     g.selectAll("text")
         .data(pie(duration))
@@ -69,4 +71,8 @@ async function init() {
         .style("font-size", '15px')
         .style("font-weight", "bold")
 
+}
+
+async function courseDetail() {
+    svg.selectAll("*").remove();
 }
