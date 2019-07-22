@@ -18,7 +18,7 @@ async function init() {
     var svg = d3.select("svg"),
         width = svg.attr("width"),
         height = svg.attr("height"),
-        radius = Math.min(width, height) / 2,
+        radius = 0.8 * Math.min(width, height) / 2,
         g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     var color = d3.scaleOrdinal(['#5355ae', '#6d70ba', '#888ac7', '#a3a4d3', '#bdbee0', '#d8d9ed']);
