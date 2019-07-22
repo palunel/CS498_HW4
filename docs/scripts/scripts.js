@@ -74,5 +74,6 @@ async function init() {
 }
 
 async function courseDetail() {
-    d3.select("#course").selectAll("*").remove();
+    var svg = d3.select("#course")
+    svg.selectAll("*").remove();
 }
