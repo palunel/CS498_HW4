@@ -40,6 +40,7 @@ async function init() {
         .attr("d", arc)
         .attr("fill", (d, i) => { return color(i) })
         .on("mouseover", (d, i) => {
+            d3.select(this).style("border", "solid")
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
