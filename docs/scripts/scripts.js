@@ -1,4 +1,5 @@
-async function init() {
+
+async function courseOverview() {
     var data = await d3.csv("courses.csv");
     var duration = [];
     var course = [];
@@ -71,7 +72,9 @@ async function init() {
         })
         .style("font-size", '15px')
         .style("font-weight", "bold")
-
+}
+async function init() {
+    await courseOverview()
 }
 
 async function courseDetail() {
