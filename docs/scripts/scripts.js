@@ -51,7 +51,7 @@ async function init() {
                 .style("left", 0)
                 .style("top", 0)
         })
-        .on("click", () => { console.log("clicked") });
+        .on("click", (d, i) => { console.log("clicked " + i) });
     g.selectAll("text")
         .data(pie(duration))
         .enter()
