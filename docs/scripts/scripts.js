@@ -38,8 +38,8 @@ async function init() {
         .enter()
         .append("path")
         .attr("d", arc)
-        .attr("fill", (i) => { return color(i) })
-        .on("mouseover", (i) => {
+        .attr("fill", (d, i) => { return color(i) })
+        .on("mouseover", (d, i) => {
             tooltip.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
