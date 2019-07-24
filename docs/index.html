@@ -19,7 +19,8 @@
 
 <body onload='init()'>
 
-  <div id="tooltip"></div>
+  <div id="tooltip1"></div>
+  <div id="tooltip2"></div>
 
   <div class='jumbotron'>
     <div class='container'>
@@ -45,8 +46,8 @@
   <div class='container'>
     <div class="row outerContainer">
       <div class='flex-left'>
-        <h5 align="center"><b>Distribution of time spent per subject</b></h5>
-        <svg id="course" width=600 height=600></svg>
+        <h5 id="title_1" align="center"><b>Distribution of time spent per subject</b></h5>
+        <svg class="course" width=600 height=600></svg>
       </div>
     </div>
   </div>
@@ -61,7 +62,7 @@
   <div class='container'>
     <div class="row outerContainer">
       <div class='flex-left'>
-        <h5 align="center"><b>Days of the week</b></h5>
+        <h5 id="title_2" align="center"><b>Days of the week</b></h5>
         <svg id="weekday" width=600 height=600></svg>
       </div>
     </div>
