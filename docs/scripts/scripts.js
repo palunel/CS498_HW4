@@ -82,7 +82,7 @@ async function courseOverview() {
 async function courseDetail(course) {
     var width = d3.select(".course").attr("width");
     var height = d3.select(".course").attr("height");
-    var data = await d3.csv("course_tasks.csv");
+    var data = await d3.csv("course_tasks1.csv");
     var tasks = [];
     var duration = [];
     var tooltip2 = d3.select("#tooltip2");
@@ -96,6 +96,8 @@ async function courseDetail(course) {
             maxValue = (parseFloat(item));
         }
     });
+
+    console.log(course, maxValue);
 
     var scale = ((height - 100) / maxValue);
 
