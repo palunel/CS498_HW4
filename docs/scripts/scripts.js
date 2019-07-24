@@ -247,25 +247,36 @@ async function daysDetail(day) {
     var horisontalMargin = 100;
     var data = await d3.csv("course_days.csv");
     var tooltip2 = d3.select("#tooltip2");
-    var days = [];
-    var totalDays = [];
+
+    var courses = []
+    var duration = data[day];
+    for (key in duration) {
+        courses.push(key);
+    }
+    courses = courses.slice(1, courses.length - 1);
+    var duration = []
+    for (var i = 0; i < courses.length; i++) {
+        duration.push(data[day][courses[i]]);
+    }
+
+    var days = []
     data.forEach(row => {
         days.push(row.Day);
-        totalDays.push(row.Total);
     });
+
     var maxValue = 0;
-    totalDays.forEach(item => {
+    duration.forEach(item => {
         if (parseFloat(item) > maxValue) {
             maxValue = (parseFloat(item));
         }
     });
     var scale = ((height - 2 * verticalMargin) / maxValue);
-    var interval = (width - 2 * horisontalMargin) / (days.length);
-    document.getElementById("title_2").innerHTML = "Total time per day of the week";
+    var interval = (width - 2 * horisontalMargin) / (courses.length);
+    document.getElementById("title_2").innerHTML = "Time spent on each subject on " + days[day] + "s";
 
     d3.select(".weekday")
         .selectAll("rect")
-        .data(totalDays)
+        .data(duration)
         .enter()
         .append("rect")
         .attr("fill", "#5355ae")
@@ -278,7 +289,7 @@ async function daysDetail(day) {
             tooltip2.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY) + "px")
-                .html(parseInt(totalDays[i]).toFixed(0) + " hours");
+                .html(parseInt(duration[i]).toFixed(0) + " hours");
         })
         .on("mouseout", (d, i) => {
             tooltip2
@@ -291,7 +302,7 @@ async function daysDetail(day) {
                 .style("opacity", 0)
                 .style("left", 0)
                 .style("top", 0);
-            loadCourseOverview();
+            loadDaysOverview();
         });
 
     var y = d3.scaleLinear()
@@ -305,7 +316,7 @@ async function daysDetail(day) {
         .call(d3.axisLeft(y));
 
     var x = d3.scaleBand()
-        .domain(days)
+        .domain(courses)
         .range([0, width - 2 * horisontalMargin]);
 
     var xTranslate = '' + (parseInt(height) - verticalMargin);
@@ -334,6 +345,11 @@ async function loadDaysDetail(day) {
     var svg = d3.select(".weekday")
     svg.selectAll("*").remove();
     await daysDetail(day);
+}
+async function loadDaysOverview() {
+    var svg = d3.select(".weekday")
+    svg.selectAll("*").remove();
+    await daysOverview();
 }
 async function init() {
     await courseOverview();
