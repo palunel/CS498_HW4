@@ -36,7 +36,7 @@ async function courseOverview() {
         .outerRadius(1.2 * radius);
 
     document.getElementById("title_1").innerHTML = "Distribution of time spent per subject";
-    document.getElementById("sub_title_1").innerHTML = "<i>(Click to drill down)</i>";
+    document.getElementById("sub_title_1").innerHTML = "<i>(Click on a datapoint to drill down)</i>";
 
     //Generate groups
     g.selectAll("path")
@@ -107,7 +107,7 @@ async function courseDetail(course) {
     console.log(scale);
     var interval = (width - 2 * horisontalMargin) / (tasks.length);
     document.getElementById("title_1").innerHTML = course;
-    document.getElementById("sub_title_1").innerHTML = "<i>(Click to drill up)</i>";
+    document.getElementById("sub_title_1").innerHTML = "<i>(Click  on a datapoint to drill up)</i>";
 
     d3.select(".course")
         .selectAll("rect")
@@ -186,8 +186,8 @@ async function daysOverview() {
     });
     var scale = ((height - 2 * verticalMargin) / maxValue);
     var interval = (width - 2 * horisontalMargin) / (days.length);
-    document.getElementById("title_2").innerHTML = "Total time per day of the week";
-    document.getElementById("sub_title_2").innerHTML = "<i>(Click to drill down)</i>";
+    document.getElementById("title_2").innerHTML = "Total time in hours spent per day of the week";
+    document.getElementById("sub_title_2").innerHTML = "<i>(Click  on a datapoint to drill down)</i>";
 
     d3.select(".weekday")
         .selectAll("rect")
@@ -275,8 +275,8 @@ async function daysDetail(day) {
     });
     var scale = ((height - 2 * verticalMargin) / maxValue);
     var interval = (width - 2 * horisontalMargin) / (courses.length);
-    document.getElementById("title_2").innerHTML = "Time spent on each subject on " + days[day] + "s";
-    document.getElementById("sub_title_2").innerHTML = "<i>(Click to drill up)</i>";
+    document.getElementById("title_2").innerHTML = "Time in hours spent on each subject on " + days[day] + "s";
+    document.getElementById("sub_title_2").innerHTML = "<i>(Click  on a datapoint to drill up)</i>";
 
     d3.select(".weekday")
         .selectAll("rect")
