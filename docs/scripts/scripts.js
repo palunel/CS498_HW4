@@ -44,7 +44,11 @@ async function courseOverview() {
         .enter()
         .append("path")
         .attr("d", arc)
+        .attr("fill", "white")
+        .transition()
         .attr("fill", (d, i) => { return color(i) })
+
+    g.selectAll("path")
         .on("mouseover", (d, i) => {
             tooltip1.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
@@ -76,6 +80,8 @@ async function courseOverview() {
         .text((d, i) => {
             return (codes[i] + " (" + (parseInt(duration[i] * 100) / total).toFixed(0) + "%)")
         })
+        .style("font-size", '0px')
+        .transition()
         .style("font-size", '15px')
         .style("font-weight", "bold")
 }
@@ -109,37 +115,6 @@ async function courseDetail(course) {
     document.getElementById("title_1").innerHTML = course;
     document.getElementById("sub_title_1").innerHTML = "<i>(Click  on a datapoint to drill up)</i>";
 
-    d3.select(".course")
-        .selectAll("rect")
-        .data(duration)
-        .enter()
-        .append("rect")
-        .attr("fill", "#5355ae")
-        .style("stroke", "#ffffff")
-        .attr("width", interval)
-        .attr("height", (d) => { return scale * d })
-        .attr("x", (d, i) => { return (interval * (i) + horisontalMargin) })
-        .attr("y", (d) => { return (height - verticalMargin) - scale * d })
-        .on("mouseover", (d, i) => {
-            tooltip2.style("opacity", 1)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY) + "px")
-                .html(parseInt(duration[i]).toFixed(0) + " hours");
-        })
-        .on("mouseout", (d, i) => {
-            tooltip2
-                .style("opacity", 0)
-                .style("left", 0)
-                .style("top", 0)
-        })
-        .on("click", (d, i) => {
-            tooltip2
-                .style("opacity", 0)
-                .style("left", 0)
-                .style("top", 0);
-            loadCourseOverview();
-        });
-
     var y = d3.scaleLinear()
         .domain([0, maxValue])
         .range([height - 2 * verticalMargin, 0]);
@@ -163,6 +138,43 @@ async function courseDetail(course) {
         .selectAll("text")
         .attr("transform", "translate(-10,10)rotate(-45)")
         .style("text-anchor", "end");
+
+    d3.select(".course")
+        .selectAll("rect")
+        .data(duration)
+        .enter()
+        .append("rect")
+        .attr("fill", "#5355ae")
+        .style("stroke", "#ffffff")
+        .attr("width", interval)
+        .attr("x", (d, i) => { return (interval * (i) + horisontalMargin) })
+        .attr("height", 0)
+        .attr("y", (height - verticalMargin))
+        .transition()
+        .attr("height", (d) => { return scale * d })
+        .attr("y", (d) => { return (height - verticalMargin) - scale * d })
+
+    d3.select(".course")
+        .selectAll("rect")
+        .on("mouseover", (d, i) => {
+            tooltip2.style("opacity", 1)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY) + "px")
+                .html(parseInt(duration[i]).toFixed(0) + " hours");
+        })
+        .on("mouseout", (d, i) => {
+            tooltip2
+                .style("opacity", 0)
+                .style("left", 0)
+                .style("top", 0)
+        })
+        .on("click", (d, i) => {
+            tooltip2
+                .style("opacity", 0)
+                .style("left", 0)
+                .style("top", 0);
+            loadCourseOverview();
+        });
 }
 
 async function daysOverview() {
@@ -197,9 +209,15 @@ async function daysOverview() {
         .attr("fill", "#5355ae")
         .style("stroke", "#ffffff")
         .attr("width", interval)
-        .attr("height", (d) => { return scale * d })
         .attr("x", (d, i) => { return (interval * (i) + horisontalMargin) })
+        .attr("height", 0)
+        .attr("y", height - verticalMargin)
+        .transition()
+        .attr("height", (d) => { return scale * d })
         .attr("y", (d) => { return (height - verticalMargin) - scale * d })
+
+    d3.select(".weekday")
+        .selectAll("rect")
         .on("mouseover", (d, i) => {
             tooltip2.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
@@ -286,9 +304,15 @@ async function daysDetail(day) {
         .attr("fill", "#5355ae")
         .style("stroke", "#ffffff")
         .attr("width", interval)
-        .attr("height", (d) => { return scale * d })
         .attr("x", (d, i) => { return (interval * (i) + horisontalMargin) })
+        .attr("height", 0)
+        .attr("y", height - verticalMargin)
+        .transition()
+        .attr("height", (d) => { return scale * d })
         .attr("y", (d) => { return (height - verticalMargin) - scale * d })
+
+    d3.select(".weekday")
+        .selectAll("rect")
         .on("mouseover", (d, i) => {
             tooltip2.style("opacity", 1)
                 .style("left", (d3.event.pageX) + "px")
