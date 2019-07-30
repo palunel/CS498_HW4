@@ -51,8 +51,8 @@ async function courseOverview() {
     g.selectAll("path")
         .on("mouseover", (d, i) => {
             tooltip1.style("opacity", 1)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY) + "px")
+                .style("left", (d3.event.pageX + 1) + "px")
+                .style("top", (d3.event.pageY + 1) + "px")
                 .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
         })
         .on("mouseout", (d, i) => {
@@ -81,6 +81,7 @@ async function courseOverview() {
             return (codes[i] + " (" + (parseInt(duration[i] * 100) / total).toFixed(0) + "%)")
         })
         .style("font-size", '0px')
+        .style("fill", "white")
         .transition()
         .style("font-size", '15px')
         .style("font-weight", "bold")
@@ -158,8 +159,8 @@ async function courseDetail(course) {
         .selectAll("rect")
         .on("mouseover", (d, i) => {
             tooltip2.style("opacity", 1)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY) + "px")
+                .style("left", (d3.event.pageX + 1) + "px")
+                .style("top", (d3.event.pageY + 1) + "px")
                 .html(parseInt(duration[i]).toFixed(0) + " hours");
         })
         .on("mouseout", (d, i) => {
@@ -220,8 +221,8 @@ async function daysOverview() {
         .selectAll("rect")
         .on("mouseover", (d, i) => {
             tooltip2.style("opacity", 1)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY) + "px")
+                .style("left", (d3.event.pageX + 1) + "px")
+                .style("top", (d3.event.pageY + 1) + "px")
                 .html(parseInt(totalDays[i]).toFixed(0) + " hours");
         })
         .on("mouseout", (d, i) => {
@@ -315,8 +316,8 @@ async function daysDetail(day) {
         .selectAll("rect")
         .on("mouseover", (d, i) => {
             tooltip2.style("opacity", 1)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY) + "px")
+                .style("left", (d3.event.pageX + 1) + "px")
+                .style("top", (d3.event.pageY + 1) + "px")
                 .html(parseInt(duration[i]).toFixed(0) + " hours");
         })
         .on("mouseout", (d, i) => {
