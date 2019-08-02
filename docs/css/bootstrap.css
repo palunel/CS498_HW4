@@ -10048,9 +10048,9 @@ a.text-dark:hover, a.text-dark:focus {
   color: #a09e9e;
 }
 
-arc:hover{
-  fill:red;
-}
+rect:hover {fill: rgb(134, 45, 45)}
+
+path:hover{fill:  rgb(134, 45, 45)}
 
 #tooltip1{
   opacity:0;

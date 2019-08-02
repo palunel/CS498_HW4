@@ -49,11 +49,15 @@ async function courseOverview() {
         .attr("fill", (d, i) => { return color(i) })
 
     g.selectAll("path")
+        // .on("mouseover", (d, i) => {
+        //     tooltip1.style("opacity", 1)
+        //         .style("left", (d3.event.pageX + 1) + "px")
+        //         .style("top", (d3.event.pageY + 1) + "px")
+        //         .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
+        // })
         .on("mouseover", (d, i) => {
-            tooltip1.style("opacity", 1)
-                .style("left", (d3.event.pageX + 1) + "px")
-                .style("top", (d3.event.pageY + 1) + "px")
-                .html("<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours");
+            var content = "<b>" + course[i] + "</b>" + "<br> Total time: " + parseInt(duration[i]).toFixed(0) + " hours";
+            toolTipOn(content, 1);
         })
         .on("mouseout", (d, i) => {
             tooltip1
@@ -158,10 +162,8 @@ async function courseDetail(course) {
     d3.select(".course")
         .selectAll("rect")
         .on("mouseover", (d, i) => {
-            tooltip2.style("opacity", 1)
-                .style("left", (d3.event.pageX + 1) + "px")
-                .style("top", (d3.event.pageY + 1) + "px")
-                .html(parseInt(duration[i]).toFixed(0) + " hours");
+            var content = parseInt(duration[i]).toFixed(0) + " hours";
+            toolTipOn(content, 0);
         })
         .on("mouseout", (d, i) => {
             tooltip2
@@ -177,6 +179,8 @@ async function courseDetail(course) {
             loadCourseOverview();
         });
 }
+
+
 
 async function daysOverview() {
     var width = d3.select(".weekday").attr("width");
@@ -220,10 +224,8 @@ async function daysOverview() {
     d3.select(".weekday")
         .selectAll("rect")
         .on("mouseover", (d, i) => {
-            tooltip2.style("opacity", 1)
-                .style("left", (d3.event.pageX + 1) + "px")
-                .style("top", (d3.event.pageY + 1) + "px")
-                .html(parseInt(totalDays[i]).toFixed(0) + " hours");
+            var content = parseInt(totalDays[i]).toFixed(0) + " hours";
+            toolTipOn(content, 0);
         })
         .on("mouseout", (d, i) => {
             tooltip2
@@ -314,11 +316,10 @@ async function daysDetail(day) {
 
     d3.select(".weekday")
         .selectAll("rect")
+        // .on("mouseover", handelMouseOver)
         .on("mouseover", (d, i) => {
-            tooltip2.style("opacity", 1)
-                .style("left", (d3.event.pageX + 1) + "px")
-                .style("top", (d3.event.pageY + 1) + "px")
-                .html(parseInt(duration[i]).toFixed(0) + " hours");
+            var content = parseInt(duration[i]).toFixed(0) + " hours";
+            toolTipOn(content, 0);
         })
         .on("mouseout", (d, i) => {
             tooltip2
@@ -358,6 +359,25 @@ async function daysDetail(day) {
         .style("text-anchor", "end");
 }
 
+function handelMouseOver(d, i) {
+    d3.select(this).attr({
+        fill: "red"
+    })
+    console.log(d3.select(this));
+}
+
+function toolTipOn(text, toolTipSize) {
+    var tooltip = newToolTip(toolTipSize);
+    tooltip
+        .style("opacity", 1)
+        .style("left", (d3.event.pageX + 1) + "px")
+        .style("top", (d3.event.pageY + 1) + "px")
+        .html(text);
+}
+
+function newToolTip(toolTipSize) {
+    return toolTipSize == 1 ? d3.select("#tooltip1") : d3.select("#tooltip2");
+}
 
 async function loadCourseDetail(course) {
     var svg = d3.select(".course")
