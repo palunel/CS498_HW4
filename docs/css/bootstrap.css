@@ -10060,6 +10060,7 @@ path:hover{fill:  rgb(134, 45, 45)}
   height: 50px;
   background: white;
   border: 0px;
+  pointer-events:none;
 }
 
 #tooltip2{
@@ -10070,5 +10071,6 @@ path:hover{fill:  rgb(134, 45, 45)}
   height: 30px;
   background: white;
   border: 0px;
+  pointer-events:none;
 }
 /*# sourceMappingURL=bootstrap.css.map */
