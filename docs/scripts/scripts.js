@@ -369,7 +369,7 @@ function handelMouseOver(d, i) {
 function toolTipOn(text, toolTipSize) {
     var tooltip = newToolTip(toolTipSize);
     tooltip
-        .style("opacity", 1)
+        .style("opacity", 0.95)
         .style("left", (d3.event.pageX + 1) + "px")
         .style("top", (d3.event.pageY + 1) + "px")
         .html(text);

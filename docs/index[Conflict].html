@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <script src='https://d3js.org/d3.v5.js'></script>
+  <script src='./scripts/scripts.js'></script>
+  <style>
+    circle {
+      fill: lightblue;
+      stroke: black;
+    }
+  </style>
+  <title>Paul Nel Interactive Storytelling Website</title>
+</head>
+
+<body onload='init()'>
+
+  <div id="tooltip1"></div>
+  <div id="tooltip2"></div>
+
+  <div class='jumbotron'>
+    <div class='container'>
+      <h1>How long does an MCS-DS take at UIUC?</h1>
+      <h3>by</h3>
+      <h2>Paul Nel</h2>
+      <p></p>
+      <h5>CS498 Data Visualisation - 2019</h5>
+    </div>
+  </div>
+  <div class="container">
+    <p class="lead">
+      As part of my journey through the <b>MCS-DS</b> program I kept detailed logs of the time I spent on each subject
+      and each
+      task. I would like to present some of the detail here as part of the Week 7 project assignment.
+    </p>
+    <p class="lead">
+      To date I have spent about <b>730 hours</b> on this program.
+
+      <b>330 days</b> have elapsed since my first course started in Fall 2018. Of these 330 days I spent total of
+      <b>216</b> actually studying at an average <b>3 hours and 36 minutes</b> and a median of
+      <b>2 hours 56 minutes</b> every day. This
+      averages out at about <b>15 hours and 45 minutes</b> spent behind the keybaord each week including all breaks!
+    </p>
+    <p class="lead">
+      I have completed 4 subjects to date namely <b>Distributed Systems (DIS)</b> with Prof Gupta, <b>Text Information
+        Systems (TIS)</b> with Prof
+      Zhai, <b>Cloud Computing Applicaitons (CCA)</b> with Prof Campbell and <b>Applied Machine Learning (AML)</b> with
+      Prof
+      Forsyth. This term I am completing <b>Theory and Practice of Data Cleaning (TDC)</b> with Prof Ludaescher and
+      <b>Data Vizualisation
+        (VIZ)</b> with
+      Prof Hart.
+      With this semester nearly complete, a comparison amongst these 6 subjects makes for interesting reading. It is
+      clear that some courses require a significant amount more time than others to complete. To date Applied Machine
+      Learning has been the most onerous with Theory and Practice of Data Cleaning the least.
+    </p>
+    <p class="lead">
+      A further interesting analysis is which component of each subject the most time was spent on. Here I classified
+      the
+      activities as <b>Lectures</b>, <b>Homework</b>, <b>Machine Problems (MPs)</b>, <b>Assignments</b>,
+      <b>Projects</b>, <b>Exam and
+        Prep</b> as well as <b>Pre-work</b> which
+      entailed work I did prior to some courses to understand some of the upcoming concepts better. The takeaway here
+      for me was that each subject was unique in its approach, with some placing more emphasis on homework and less
+      on
+      exams while project work formed the bulk of the work for others.
+    </p>
+    <p class="lead">
+      Finally, with the MCS-DS being a part time program which I need to complete outside my working
+      hours, I find it interesting to see on which days I tend to spend most of my time studying. As expected, it is the
+      weekends! A further interesting (but understandable) outcome was that Friday evenings I tend to do less than on
+      other evenings.
+    </p>
+    <p class="lead">
+      I have provided two visualizations to show and explore these insights a bit more. The first shows
+      the relative
+      distribution of time spent on each subject. Drilling down on the data points provide some more insights in the
+      different areas in each subject that I spent the most time.
+    </p>
+    <p class="lead">
+      The second visualisation breaks the time spent into week days with the drill down providing insights
+      into how each of the subjects were tackled on each of the days.
+    </p>
+
+  </div>
+  <div class='container'>
+    <div class="row outerContainer">
+      <div class='flex-left'>
+        <h5 id="title_1" align="center"></h5>
+        <h6 class="sub_title" id="sub_title_1" align="center"></h6>
+        <svg class="course" width=600 height=600></svg>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class='container'>
+    <div class="row outerContainer">
+      <div class='flex-left'>
+        <h5 id="title_2" align="center"><b>Days of the week</b></h5>
+        <h6 class="sub_title" id="sub_title_2" align="center"></h6>
+        <svg class="weekday" width=600 height=600></svg>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <p class="lead">
+
+    </p>
+    <br>
+    <p align="center">
+      <h5 align="center">Paul Nel</h5>
+      <h6 align="center">CS 498 Data Visualization - July 2019</h6>
+      <p></p>
+      <h6 class="sub_title" align="center">paulnel2</h6>
+    </p>
+  </div>
+
+
+</body>
+
+</html>
